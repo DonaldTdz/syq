@@ -1,0 +1,108 @@
+﻿@model HC.WeChat.Orders.Dtos.OrderListDto
+
+@{
+    ViewData["Title"] = "撒野趣";
+    var OrderList = ViewBag.OrderList as List<HC.WeChat.Orders.Dtos.OrderListDto>;
+}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>撒野趣</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+    <base href="./">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css" rel="stylesheet">
+    <style type="text/css">
+        .weui-media-box__info {
+            margin-top: 0px;
+            padding-bottom: 0px;
+            font-size: 13px;
+            color: #999999;
+            line-height: 1em;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .t {
+            float: right;
+        }
+
+        .pc {
+            margin-top: 20px;
+            height: 18px;
+            margin-left: 20px;
+        }
+
+        .sn {
+            height: 18px;
+            margin-left: 15px
+        }
+
+        .orderId {
+            margin-top: 10px;
+            border-left-width: 15px;
+            margin-left: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="weui-cells__title" style="text-align:center">购买记录</div>
+    @if (OrderList.Count != 0)
+    {
+        @foreach (var item in OrderList)
+        {
+            <div class="weui-panel weui-panel_access" style="margin-top: 0px;border-top:white">
+                <div class="weui-panel__bd">
+                    <ul class="weui-media-box__info pc orderId">
+                        <li class="weui-media-box__info__meta " style="color:black">订单编号：@item.OrderId</li>
+                        <li class="weui-media-box__info__meta t" style="color:#DC143C">@item.State</li>
+                    </ul>
+                </div>
+                <div class="weui-flex" style="width: 100%;">
+                    <div style="height:70px; margin-top:5px;margin-bottom:0px; width: 30%;float: left;margin-left: 13px;">
+                        <img style="border-radius: 6px; height: 100%;width: 100%;" src="@item.IconImg" alt="">
+
+                    </div>
+                    <div style="width: 70%;float: right;margin-left: 8px;">
+                        <div style="margin-top: 5px; height:50%;">
+                            <div style="color:black; width: 60%;float: left; font-size:13px;">
+                                【@item.Title】
+                            </div>
+                            <div style="color:black; font-size:13px; width: 20%;float: right;height: 100%;margin-right: 13px;text-align: right;">
+                                <div style="width: 100%;height: 50%;">
+                                    ¥@item.Price
+                                </div>
+                                <div style="width: 100%;height: 50%;">
+                                    x1
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-size:13px;color:#999;height: 40%;">
+                            @item.PpriceTitle&nbsp;@item.Price@("元")
+                        </div>
+                    </div>
+                </div>
+                <div class="weui-panel__bd" style="font-size:13px;">
+                    <div style="float:left;width:85%;text-align:right;">
+                        合计:
+                    </div>
+                    <div style="float:right;width:10%;text-align:right;color:#DC143C;margin-right: 13px;">
+                        @(item.Money)
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+    else
+    {
+        <ul class="weui-media-box__info">
+            <li style="text-align: center">-------暂无数据-------</li>
+        </ul>
+    }
+</body>
+</html>

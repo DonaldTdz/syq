@@ -1,0 +1,26 @@
+<pro-header>
+    <ng-template #content>
+        <div nz-row nzGutter="16">
+            <!-- <div nz-col nzXs="24" nzMd="3" *ngIf="userInfo.headImgUrl">
+                <nz-card [nzBordered]="false" class="ant-card__img">
+                    <img class="img ng-star-inserted" src="{{userInfo.headImgUrl}}">
+                </nz-card>
+            </div> -->
+            <div nz-col nzXs="24" nzSm="18">
+                <desc-list size="small" col="4" class="mb-md">
+                    <desc-list-item term="会员名称">{{userInfo.nickName}}</desc-list-item>
+                    <desc-list-item term="用户类型">{{userInfo.userTypeName}}</desc-list-item>
+                    <desc-list-item term="积分总额">{{userInfo.integralTotal}}</desc-list-item>
+                    <desc-list-item term="会员卡号">{{userInfo.memberBarCode}}</desc-list-item>
+                    <desc-list-item term="绑定状态">{{userInfo.bindStatusName}}</desc-list-item>
+                    <desc-list-item term="微信编号">{{userInfo.openId}}</desc-list-item>
+                </desc-list>
+            </div>
+        </div>
+    </ng-template>
+</pro-header>
+<footer-toolbar>
+    <button nz-button [nzType]="'default'" (click)="return()" [nzSize]="'large'">
+        {{l("返回")}}
+    </button>
+</footer-toolbar>
