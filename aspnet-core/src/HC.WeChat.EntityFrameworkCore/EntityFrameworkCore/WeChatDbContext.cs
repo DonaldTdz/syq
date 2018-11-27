@@ -14,6 +14,7 @@ using HC.WeChat.UserInfos;
 
 using HC.WeChat.BuSetInfos;
 using HC.WeChat.Activities;
+using HC.WeChat.Contacts;
 
 namespace HC.WeChat.EntityFrameworkCore
 {
@@ -41,5 +42,7 @@ namespace HC.WeChat.EntityFrameworkCore
         public virtual DbSet<UserInfo> UserInfos { get; set; }
         public virtual DbSet<Activity> Activitys { get; set; }
         public virtual DbSet<BuSetInfo> BuSetInfos { get; set; }
+
+        public virtual DbSet<Contact> Contacts { get; set; }
     }
 }
